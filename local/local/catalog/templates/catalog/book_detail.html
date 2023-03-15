@@ -1,0 +1,23 @@
+{% extends 'base_generic.html'%}
+
+{%block content%}
+<h1 style="margin-bottom:50px;"><b>Title: </b> {{book.title}}</h1>
+
+<p><b>Author: </b>{{book.author}}</p>
+<p><b>Summary: </b>{{book.summary}}</p>
+<p><b>ISBN: </b>{{book.isbn}}</p>
+<p><b>Genres: </b>{%for genre in book.genre.all%}{{genre}}{%if not forloop.last%}, {%endif%}{%endfor%}</p>
+<p><b>Language: </b>{{book.language}}</p>
+
+<p style="margin:40px 0;"><b>Copies:</b></p>
+
+{% for instance in book.bookinstance_set.all %}
+<hr>
+<p class="{%if instance.status == 'a'%}text-success{%elif instance.status == 'm'%}text-danger{%else%}text-warning{%endif%}"><b>Status: </b>{{instance.get_status_display}}</p>
+{%if instance.due_back%}<p><b>Due back: </b>{{instance.due_back}}</p>{%endif%}
+<p class="text-muted"><b>Id: </b>{{instance.id}}</p>
+{%endfor%}
+
+
+
+{%endblock%}

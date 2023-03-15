@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Local Library</h1>
+
+    <h2>Dynamic Content</h2>
+    <ul>
+        <li>
+            <b>Books: </b>
+            {{books_count}}
+        </li>
+        <li>
+            <b>Authors: </b>
+            {{authors_count}}
+        </li>
+        <li>
+            <b>Books Instances: </b>
+            {{books_instances_count}}
+        </li>
+        <li>
+            <b>Books Reserved: </b>
+            {{books_reserved_inst_count}}
+        </li>
+    </ul>
+    <p>Вы посетили сайт {{visits_count}} раз</p>
+{% endblock %}

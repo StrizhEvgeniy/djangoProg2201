@@ -1,0 +1,15 @@
+{% extends 'base_generic.html'%}
+
+{% block content %}
+<h1 style="margin-bottom:40px">Books: </h1>
+
+<ul>
+  {% for book in book_list %}
+  <li style="margin: 15px 0">
+    <a href="{{book.get_absolute_url}}">{{book.title}}</a> ({{book.author}})
+  </li>
+  {%endfor%}
+</ul>
+
+
+{% endblock %}
