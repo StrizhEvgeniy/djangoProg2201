@@ -20,6 +20,16 @@
             <div class="col-sm-2">
                 {% block sidebar %}
                     <ul class="sidebar-nav">
+                        {%if user.is_authenticated%}
+                        <li>{{user.get_username}}</li>
+                        <li>
+                            <a href="{%url 'logout'%}">Log out</a>
+                        </li>
+                        {%else%}
+                        <li>
+                            <a href="{%url 'login'%}">Log in</a>
+                        </li>
+                        {%endif%}
                         <li>
                           <a href="{% url 'index' %}">Home</a>
                         </li>
